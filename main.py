@@ -23,6 +23,11 @@ feature_columns = joblib.load('features.pkl')
 # Create FastAPI app
 app = FastAPI()
 
+
+@app.get("/")
+def read_root():
+    return {"message": "API running"}
+
 # Define input model
 class UserInput(BaseModel):
     energy: float
